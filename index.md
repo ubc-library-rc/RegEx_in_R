@@ -6,23 +6,26 @@ nav_order: 1
 
 ## Note: this workshop is in development and not yet complete.
 
-Description...
+In this workshop, we will learn about regular expressions (RegEx). We will go over what they are and when to use them and then have lots of time to practice.
+
+We assume some initial experience with R. If the material covered in beginner <a href="https://ubc-library-rc.github.io/Beginner_R_Part1/" target="_blank">part 1</a> and <a href="https://ubc-library-rc.github.io/Beginner_R_Part2/" target="_blank">part 2</a> are familiar, the topics covered today should be managable. Being familiar with the <a href="https://ubc-library-rc.github.io/intro_to_tidyverse/" target="_blank">tidyverse package</a> may be beneficial, but we do not expect all participants to be familiar with the tidyverse syntax. 
 
 ## Learning objectives
 
-At the end of this workshop, you will be able to:
-1.
-2.
-3.
+At the end of this workshop, you will have learned:
+1. What regular expressions are.
+2. When is using regular expressions is useful.
+3. Gotten some hands on practice with regular expressions in R.
 
 ## Schedule
 
 | 0:00 | Welcome and using Zoom|
 | 0:05 | Introduction |  
-| 0:15 |  |
-| 0:30 |  |   
-| 0:45 |  |
+| 0:10 | What are regular expressions |
+| 0:20 | When to use regular expressions |   
+| 0:45 | Practice time |
 | 1:00 | Wrap-up and Discussion |
 
 ## Resources
-* [eg. link to external slides]
+Test regular expressions here https://regex101.com/ 
+Similar workshop to this one for more preactice here https://www.datacamp.com/tutorial/regex-r-regular-expressions-guide 
