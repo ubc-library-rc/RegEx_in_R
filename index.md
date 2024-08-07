@@ -22,8 +22,8 @@ At the end of this workshop, you will have learned:
 | 0:00 | Welcome and using Zoom|
 | 0:05 | Introduction |  
 | 0:10 | What are regular expressions |
-| 0:20 | When to use regular expressions |   
-| 0:45 | Practice time |
+| 0:15 | When to use regular expressions |   
+| 0:30 | Practice time |
 | 1:00 | Wrap-up and Discussion |
 
 ## Resources
