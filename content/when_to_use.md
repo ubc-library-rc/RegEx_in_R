@@ -1,6 +1,6 @@
 ---
 layout: default
-title: When to use RegEx (with examples)
+title: When to use RegEx
 nav_order: 6
 ---
 # Example of RegEx in action
