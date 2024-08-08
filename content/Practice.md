@@ -1,1 +1,17 @@
+---
+layout: default
+title: RegEx Practice
+nav_order: 7
+---
+# List of practice problems 
+
+## Single letter
+
+## Groups of letters
+
+## Combinations of words
+
+## Excluding potential matches from being changed
+
+## Multi-step problems
 
