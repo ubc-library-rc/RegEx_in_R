@@ -78,6 +78,26 @@ fruits.re
 
 ## Special cases
 ### Periods
+Often, periods in data cause problems down the line for analysis, so it's nice to remove them. 
+
+```r
+## get the fruit vector
+fruit = c("apple.", "pears.", "bananas.")
+## try to replace a period (.) how we usually replace characters
+fruit = str_replace(fruit, ".", "")
+
+## this does not work!
+## a preiod in RegEx means any character, so str_replace is replacing any first instance of a character (the first letter of the word in this case) with nothing
+
+## get values again
+fruit = c("apple.", "pears.", "bananas.")
+## escape the peiod 
+fruit = str_replace(fruit, "\\.", "")
+
+fruit
+## yay!
+```
+
 ### Missing values (true NA) 
 The purposes of this section is:
 1. To be able to tell the difference between cells that say NA and what the missing value (NA) in R looks like. They are not the same and this tends to cause confusion. 
