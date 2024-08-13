@@ -4,13 +4,14 @@ title: When to use RegEx
 nav_order: 6
 ---
 # Example of RegEx in action
+Here, we use the same vector to illustrate different replacement functions. Focus on how small changes in the vector or function used to replace characters makes a big difference in the end result. These examples work both for vectors and dataframes, but we use mainly use vectors in these examples for simplicity. 
 
 ## Look for matches in vector
 We will use an example of a regular expression in R that is built into the tidyverse package. 
 
 ```r
 ## install tidyverse (only do this once on your computer)
-install.packages("tidyverse)
+install.packages("tidyverse")
 
 ## load tidyverse (do this every time you use R)
 library(tidyverse)
@@ -55,26 +56,48 @@ There is a problem though, this is the output <em> "one apple"       "two pe-rs"
 ```r
 ## fruit vector
 fruits = c("one apple", "two peaars", "three baaanaaanas")
-## add a function to get all instances of duplcated a
-fruits.re = str_replace_all(fruits, "a{2,}", function(x) {
-  strrep("-", nchar(x) / 2) 
-})
+## attempt 2 
+fruits.re = str_replace_all(fruits, "a{2,}", "-")
 ## output
 fruits.re
 ```
-This works, but what is the function doing? 
-<a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/strrep" target=_blank><em>strrep</em></a> make the str_replace_all frunction repeat to replace all the occurences of multiple "a" in the string.
-<em>/2</em> is dividing that character count by 2 to avoid having on dash per extra "a". You can figure this out by adding more "a" in some places and seeing how there is more than one dash now.
+This works! When using RegEx, it is very important to check the output of your manipulations. 
 
+## Look for matches that match a condition that includes many characters. 
+Sometimes, there are too many characters to list in a replacement target list, but they all meet a condition. In this case, let's replace all numbers with a dash.
 
+```r
+## fruit vector
+fruits = c("0ne appl3", "tw0 p3ars", "thr33 bananas")
+## attempt 1 
+fruits.re = str_replace_all(fruits, "[:digit:]", "-")
+## output
+fruits.re
+```
 
 
 ## Special cases
-### Look for matches, but exclude some based on a condition. 
 ### Periods
-### Missign values (true NA) 
-### Other replacement strategies
-#### Base R
+### Missing values (true NA) 
+The purposes of this section is:
+1. To be able to tell the difference between cells that say NA and what the missing value (NA) in R looks like. They are not the same and this tends to cause confusion. 
+2. To teach you how to deal with real missing values.
+
+```r
+## get values
+fruit.names = c("apple", "pears", "bananas")
+fruit.counts = c("1", "2", "NA")
+## make data frame
+fruits.df = data.frame(fruit.names, fruit.counts)
+## right now, the NA in the fruit.counts column is not a true NA. We will convert it to a true NA here for the sake of this example
+fruits.df$fruit.counts = as.numeric(fruits.df$fruit.counts)
+## forcing fruit.counts from a character to numeric makes R replace the non number characters with missing values, NA. 
+
+## now that we have a missing value, let's deal with it
+fruits.df$fruit.counts = str_replace_na(fruits.df$fruit.counts, "missing")
+```
+
+## Base R
 Functions in base R can do the same things as shown above. This means that are not part of a package that you need to install or load on your computer. Here is an example with gsub. 
 ```r
 ## fruits vector
