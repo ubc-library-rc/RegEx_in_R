@@ -87,7 +87,7 @@ fruit = c("apple.", "pears.", "bananas.")
 fruit = str_replace(fruit, ".", "")
 
 ## this does not work!
-## a preiod in RegEx means any character, so str_replace is replacing any first instance of a character (the first letter of the word in this case) with nothing
+## a period in RegEx means any character, so str_replace is replacing any first instance of a character (the first letter of the word in this case) with nothing
 
 ## get values again
 fruit = c("apple.", "pears.", "bananas.")
@@ -109,12 +109,16 @@ fruit.names = c("apple", "pears", "bananas")
 fruit.counts = c("1", "2", "NA")
 ## make data frame
 fruits.df = data.frame(fruit.names, fruit.counts)
-## right now, the NA in the fruit.counts column is not a true NA. We will convert it to a true NA here for the sake of this example
+View(fruits.df)
+## right now, the NA in the fruit.counts column is not a true NA.
+  ## We will convert it to a true NA here for the sake of this example
 fruits.df$fruit.counts = as.numeric(fruits.df$fruit.counts)
 ## forcing fruit.counts from a character to numeric makes R replace the non number characters with missing values, NA. 
+View(fruits.df)
 
 ## now that we have a missing value, let's deal with it
 fruits.df$fruit.counts = str_replace_na(fruits.df$fruit.counts, "missing")
+View(fruits.df)
 ```
 
 ## Base R
