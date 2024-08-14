@@ -93,5 +93,28 @@ fruitcount = as.data.frame(cbind(fruit, count))
 fruitcount = data.frame(lapply(fruitcount, gsub, pattern = "e", replacement = "-", fixed = TRUE))
 </details>
 
+### P3 - Edit URLs
 
+``` r
+## starting url list
+url = c("https://www2.gov.bc.ca/gov/content/home", 
+        "https://www.canada.ca/en.html", 
+        "https://yukon.ca/", 
+        "https://www.alberta.ca/")
+```
+Your target is to have this url list <em>"gov.bc"  "canada"  "yukon"   "alberta"</em>
+
+<details><summary><strong> Answer </strong></summary>
+## get rid of the parts of the very start of the urls
+url.short = gsub("https://", "", url)
+
+## get rid of the rest of the start start of URLs that is not interesting rigth now 
+url.short = gsub("(www|www2)(\\.)", "", url.short)
+url.short
+
+## get rid of .ca and everything at the end
+url.short = gsub("\\.ca.*", "", url.short)
+url.short
+
+</details>
 
