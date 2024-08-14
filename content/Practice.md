@@ -15,7 +15,7 @@ The idea is not to solve the probelm the same way that is here. The important th
 fruits <- c("one -pple", "two pe-rs", "three b-n-n-s")
 ```
 <details><summary><strong> Answer </strong></summary>
-fruits = str_replace_all(fruits, "-", "a")
+        fruits = str_replace_all(fruits, "-", "a")
 </details>
 
 ### P2 - Replace "-" with "e" in the count column only
@@ -27,7 +27,7 @@ count = c("on-", "two", "thr--")
 fruitcount = as.data.frame(cbind(fruit, count))
 ```
 <details><summary><strong> Answer </strong></summary>
-fruitcount$count = gsub("-", "e", fruitcount$count)
+        fruitcount$count = gsub("-", "e", fruitcount$count)
 </details>
 
 ## II - Groups of letters
@@ -39,7 +39,7 @@ This is an example from stringr, type ?str_replace to find it in the help tab.
 fruits <- c("one apple", "two pears", "three bananas")
 ```
 <details><summary><strong> Answer </strong></summary>
-fruits = str_replace(fruits, "[aeiou]", "-")
+        fruits = str_replace(fruits, "[aeiou]", "-")
 </details>
 
 ## III - Combinations of words
@@ -69,13 +69,11 @@ Fix the herbarium_inventory to
 <details><summary><strong> Answer </strong></summary>
 
 1. Remove all spaces
-<p>herbarium_inventory <- str_replace_all(" ", "", herbarium_inventory)</p>
-
+       <p>herbarium_inventory <- str_replace_all(" ", "", herbarium_inventory)</p>
 2. Convert the "deposited" column to 1 for "yes" and 0 for "no"
-<p>herbarium_inventory$deposited <- ifelse(grepl("y(es)", herbarium_inventory$deposited), 1, 0)</p>
-
+      <p>herbarium_inventory$deposited <- ifelse(grepl("y(es)", herbarium_inventory$deposited), 1, 0)</p>  
 3. Fix month
-<p>herbarium_inventory$dates <- gsub("-(0?3-|(?i)mar)-", "-March-", herbarium_inventory$dates)</p>
+        <p>herbarium_inventory$dates <- gsub("-(0?3-|(?i)mar)-", "-March-", herbarium_inventory$dates)</p>
 
 </details>
 
@@ -90,7 +88,7 @@ count = c("one", "two", "three")
 fruitcount = as.data.frame(cbind(fruit, count))
 ```
 <details><summary><strong> Answer </strong></summary>
-fruitcount = data.frame(lapply(fruitcount, gsub, pattern = "e", replacement = "-", fixed = TRUE))
+        fruitcount = data.frame(lapply(fruitcount, gsub, pattern = "e", replacement = "-", fixed = TRUE))
 </details>
 
 ### P3 - Edit URLs
@@ -105,16 +103,13 @@ url = c("https://www2.gov.bc.ca/gov/content/home",
 Your target is to have this url list <em>"gov.bc"  "canada"  "yukon"   "alberta"</em>
 
 <details><summary><strong> Answer </strong></summary>
-## get rid of the parts of the very start of the urls
-url.short = gsub("https://", "", url)
 
-## get rid of the rest of the start start of URLs that is not interesting rigth now 
-url.short = gsub("(www|www2)(\\.)", "", url.short)
-url.short
-
-## get rid of .ca and everything at the end
-url.short = gsub("\\.ca.*", "", url.short)
-url.short
+1. get rid of the parts of the very start of the urls
+        <p>url.short = gsub("https://", "", url)</p>
+2. get rid of the rest of the start start of URLs that is not interesting rigth now
+       <p>url.short = gsub("(www|www2)(\\.)", "", url.short)</p>
+3. get rid of .ca and everything at the end</p>
+      <p>url.short = gsub("\\.ca.*", "", url.short)</p>  
 
 </details>
 
