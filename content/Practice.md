@@ -4,18 +4,55 @@ title: RegEx Practice
 nav_order: 7
 ---
 # List of practice problems 
+All of these problems are set up in the same way. You are given code to set up the problem, and then it's up to you to work from there to get to the solution.
 
-## Single letter
+The idea is not to solve the probelm the same way that is here. The important thing is to get the same result, which is why we provide answer code. There are many ways to get both correct and wrong answers, so check the output carefully. 
 
-## Groups of letters
+## I - Single letter
+### P1 - Replace all "-" with "a" (vector)
+``` r
+## starting vector
+fruits <- c("one -pple", "two pe-rs", "three b-n-n-s")
+```
+<details><summary><strong> Answer </strong></summary>
+fruits = str_replace_all(fruits, "-", "a")
+</details>
 
-## Combinations of words
+### P2 - Replace "-" with "e" in the count column only
+``` r
+## get vector
+fruit = c("appl-", "apricot", "b-ll p-pp-r")
+count = c("on-", "two", "thr--")
+## make dataframe
+fruitcount = as.data.frame(cbind(fruit, count))
+```
+<details><summary><strong> Answer </strong></summary>
+fruitcount$count = gsub("-", "e", fruitcount$count)
+</details>
 
-## Excluding potential matches from being changed
+## II - Groups of letters
+### P1 - Replace all vowels with a "-"
+This is an example from stringr, type ?str_replace to find it in the help tab.
 
-## Multi-step problems
-These probelms are meant to be challenging and require multiple steps to complete.
+``` r
+## get vector
+fruits <- c("one apple", "two pears", "three bananas")
+```
+<details><summary><strong> Answer </strong></summary>
+fruits = str_replace(fruits, "[aeiou]", "-")
+</details>
 
+## III - Combinations of words
+
+
+
+## IV - Excluding potential matches from being changed
+
+
+
+## V - Complex problems
+
+### P1 - Herbarium inventory dataset
 ``` r
 ## values
 dates = c("2000-03-08", "2001-3-15", "2002-03-21", "2003-March -12", "2004-mar-3", "2004-0 3-17")
@@ -41,4 +78,20 @@ Fix the herbarium_inventory to
 <p>herbarium_inventory$dates <- gsub("-(0?3-|(?i)mar)-", "-March-", herbarium_inventory$dates)</p>
 
 </details>
+
+### P2 - set up data for the start of problem I-P2
+Start with a nice dataset and change every "e" to "-"
+
+``` r
+## vectors
+fruit = c("apple", "apricot", "bell pepper")
+count = c("one", "two", "three")
+## make dataframe 
+fruitcount = as.data.frame(cbind(fruit, count))
+```
+<details><summary><strong> Answer </strong></summary>
+fruitcount = data.frame(lapply(fruitcount, gsub, pattern = "e", replacement = "-", fixed = TRUE))
+</details>
+
+
 
