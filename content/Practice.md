@@ -31,7 +31,7 @@ fruitcount = as.data.frame(cbind(fruit, count))
 </details>
 
 ## II - Groups of letters
-### P1 - Replace all vowels with a "-"
+### P1 - Replace all vowels with "-"
 This is an example from stringr, type ?str_replace to find it in the help tab.
 
 ``` r
@@ -42,12 +42,42 @@ fruits <- c("one apple", "two pears", "three bananas")
         fruits = str_replace(fruits, "[aeiou]", "-")
 </details>
 
-## III - Combinations of words
+### P2 - Capitalize all letters
+``` r
+## get vector
+fruits <- c("one apple", "two pears", "three bananas")
+```
+<details><summary><strong> Answer </strong></summary>
+        fruits = str_to_title(fruits)
+</details>
 
+
+## III - Combinations of words
+### P1 - remove the end of the words that are Amarica and British english and sigular or plural
+Your goal is for <em>length(unique(words))</em> to output 2. Right now, it outputs 8. 
+
+``` r
+## initial vector of words
+words = c("color", "colour", "flavor", "flavour", "colors", "colours", "flavors", "flavours")
+
+## how many unique words?
+length(unique(words))
+        # 8 words
+```
+<details><summary><strong> Answer </strong></summary>
+        words = str_replace(words, "o(u)*r(s)*", "")
+        length(unique(words))
+</details>
 
 
 ## IV - Excluding potential matches from being changed
-
+### P1 - convert all letters to "-" except "e"
+``` r
+fruits <- c("one apple", "two pears", "three bananas")
+```
+<details><summary><strong> Answer </strong></summary>
+        fruits = str_replace_all(fruits, "[a-d,f-z]", "-")
+</details>
 
 
 ## V - Complex problems
