@@ -1,9 +1,9 @@
 ---
 layout: default
-title: When to use RegEx
+title: When to use regex
 nav_order: 6
 ---
-# Example of RegEx in action
+# Example of regex in action
 Here, we use the same vector to illustrate different replacement functions. Focus on how small changes in the vector or function used to replace characters makes a big difference in the end result. These examples work both for vectors and dataframes, but we use mainly use vectors in these examples for simplicity. 
 
 ## Look for matches in vector
@@ -24,6 +24,8 @@ fruits.re
 ```
 ### What is the computer doing here?
 In the fruits example, R looks for the letters within the [] <em>[aeiou]</em> within the <em>fruits</em> vector. Anytime R finds any of the letters in [], it replaces them with a desh (-). This illustrates a critical part of regular expressions, "any matches" is the default way that the computer will look for matches. To get around this, you can exclude matches.
+
+There are many symbols in regex syntax. The <a href="https://ubc-library-rc.github.io/intro-regex/content/03_basic_syntax.html#special-characters" target="_blank">general regex workshop</a> by the library has a wonderful table that summarizes common ones. 
 
 ## Look for matches in a dataframe
 Here, we are looking at one column in the dataframe instead of looking at a vector
