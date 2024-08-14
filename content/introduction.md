@@ -15,6 +15,8 @@ nav_order: 4
 To clean up strings (text) before analysis. After cleaning up the strings, finding macthes between groups and linking different strings will be much easier. 
 
 ## When might regex not be appropriate
-If you are unfamiliar with the dataset. The important first step for efficient regex implementation is understanding the variation in your data. Getting this wrong could lead to not aggregetating strings that need to be aggreagated, or aggregating string that should be seperate. For example, pretend you are working with linguistics data (workshop for this comming soon!), is the difference between <em>color</em> and <em>colour</em> meaningful? 
+If you are unfamiliar with the dataset. The important first step for efficient regex implementation is understanding the variation in your data. Getting this wrong could lead to not aggregetating strings that need to be aggreagated, or aggregating string that should be seperate. 
+
+For example, pretend you are working with linguistics data (workshop for this comming soon!), is the difference between <em>color</em> and <em>colour</em> meaningful? These types of questions are critical when setting up the regex and depend on your research question/goal. 
 
 
