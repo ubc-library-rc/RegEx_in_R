@@ -33,4 +33,4 @@ At the end of this workshop, you will have learned:
 ## Resources
 <p>Test regular expressions here https://regex101.com/ and/or here https://regexr.com/ </p>
 <p>General regex workshop by the UBC library https://ubc-library-rc.github.io/intro-regex/ </p>
-,p>Similar workshop to this one for more practice here https://www.datacamp.com/tutorial/regex-r-regular-expressions-guide</p>
+<p>Similar workshop to this one for more practice here https://www.datacamp.com/tutorial/regex-r-regular-expressions-guide</p>
