@@ -1,13 +1,13 @@
 ---
 layout: default
-title: When to use regex
+title: How and when to use regex
 nav_order: 6
 ---
 # Example of regex in action
-Here, we use the same vector to illustrate different replacement functions. Focus on how small changes in the vector or function used to replace characters makes a big difference in the end result. These examples work both for vectors and dataframes, but we use mainly use vectors in these examples for simplicity. 
+Here, we use small vectors and dataframes to illustrate different replacement functions. Focus on how small changes in the regex syntax makes a big difference in the end result. These examples work both for vectors and dataframes, but we use mainly use vectors in these examples for simplicity. 
 
 ## Look for matches in vector
-We will use an example of a regular expression in R that is built into the tidyverse package. 
+We will use an example of regex in R that is built into the tidyverse package (example for ?str_replace). 
 
 ```r
 ## install tidyverse (only do this once on your computer)
@@ -23,7 +23,7 @@ fruits.re = str_replace(fruits, "[aeiou]", "-")
 fruits.re
 ```
 ### What is the computer doing here?
-In the fruits example, R looks for the letters within the [] <em>[aeiou]</em> within the <em>fruits</em> vector. Anytime R finds any of the letters in [], it replaces them with a desh (-). This illustrates a critical part of regular expressions, "any matches" is the default way that the computer will look for matches. To get around this, you can exclude matches.
+In the fruits example, R looks in the the <em>fruits</em> vector for the letters within the [] <em>[aeiou]</em>. Anytime R finds any of the letters in [], it replaces them with a dash (-). This illustrates a critical part of regular expressions, "any matches" is the default way that the computer will look for matches. To get around this, you can make your expression more speicifc. For example, you could specify that the letters in [] should only be changed if they are after a space.
 
 There are many symbols in regex syntax. The <a href="https://ubc-library-rc.github.io/intro-regex/content/03_basic_syntax.html#special-characters" target="_blank">general regex workshop</a> by the library has a wonderful table that summarizes common ones. 
 
@@ -39,7 +39,7 @@ fruits.df = data.frame(fruit.names, fruit.counts)
 ## replace vowels in the column fruit.names only
 fruits.df$names.replaced = str_replace(fruits.df$fruit.names, "[aeiou]", "-")
 ```
-See how here we are creating a new column <em>names.replaced</em> with the vowels replaced with a dash? This allows targeted data manipulation within a dataframe. 
+See how here we are creating a new column <em>names.replaced</em> with the vowels replaced with a dash, but the <em>fruit.names</em> and <em>fruit.counts</em> do not have any dashes replacing vowels? This showcases targeted data manipulation within a dataframe. 
 
 ## Multiple matches within the same string
 Let's make a new fruit vector with some extra "a" letters and get rid of them.
@@ -63,7 +63,7 @@ fruits.re = str_replace_all(fruits, "a{2,}", "-")
 ## output
 fruits.re
 ```
-This works! When using RegEx, it is very important to check the output of your manipulations. 
+This works! When using regex, it is very important to check the output of your manipulations. 
 
 ## Look for matches that match a condition that includes many characters. 
 Sometimes, there are too many characters to list in a replacement target list, but they all meet a condition. In this case, let's replace all numbers with a dash.
@@ -89,7 +89,7 @@ fruit = c("apple.", "pears.", "bananas.")
 fruit = str_replace(fruit, ".", "")
 
 ## this does not work!
-## a period in RegEx means any character, so str_replace is replacing any first instance of a character (the first letter of the word in this case) with nothing
+## a period in regex means any character, so str_replace is replacing any first instance of a character (the first letter of the word in this case) with nothing.
 
 ## get values again
 fruit = c("apple.", "pears.", "bananas.")
@@ -118,7 +118,7 @@ fruits.df$fruit.counts = as.numeric(fruits.df$fruit.counts)
 ## forcing fruit.counts from a character to numeric makes R replace the non number characters with missing values, NA. 
 View(fruits.df)
 
-## now that we have a missing value, let's deal with it
+## now that we have a missing value, let's deal with it by replacing the NA with the word "missing".
 fruits.df$fruit.counts = str_replace_na(fruits.df$fruit.counts, "missing")
 View(fruits.df)
 ```
@@ -132,4 +132,4 @@ fruits.re = c("one apple", "two pe-rs", "three b-n-nas")
 fruits.gs = gsub("t", "T", fruits.re)
 fruits.gs
 ```
-Here is an <a href="https://stringr.tidyverse.org/articles/from-base.html" target="_blank">equivalency table between stringr and base R</a>.
+Here is an <a href="https://stringr.tidyverse.org/articles/from-base.html" target="_blank">equivalency table between stringr and base R</a>. There is no computational reason to use tidyverse over base R. We are showcasing the operations in tidyverse in this workshop because tidyverse packages have very through documentation that tends to be more user freindly than base R documentation. You should feel free to use tidyverse and/or base R depending on what works best for the particular line of code you are currently wirting.
