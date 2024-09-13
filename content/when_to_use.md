@@ -23,7 +23,7 @@ fruits.re = str_replace(fruits, "[aeiou]", "-")
 fruits.re
 ```
 ### What is the computer doing here?
-In the fruits example, R looks in the the <em>fruits</em> vector for the letters within the [] <em>[aeiou]</em>. Anytime R finds any of the letters in [], it replaces them with a dash (-). This illustrates a critical part of regular expressions, "any matches" is the default way that the computer will look for matches. To get around this, you can make your expression more speicifc. For example, you could specify that the letters in [] should only be changed if they are after a space.
+In the fruits example, R looks in the the <em>fruits</em> vector for the letters within the [], <em>[aeiou]</em>. When R finds  letters in [], it replaces them with a dash (-). This illustrates a critical part of regular expressions, "any matches" is the default way that the computer will look for matches. To get around this, you can make your expression more speicifc. For example, you could specify that the letters in [] should only be changed if they are after a space.
 
 There are many symbols in regex syntax. The <a href="https://ubc-library-rc.github.io/intro-regex/content/03_basic_syntax.html#special-characters" target="_blank">general regex workshop</a> by the library has a wonderful table that summarizes common ones. 
 
@@ -53,7 +53,7 @@ fruits.re = str_replace(fruits, "a{2,}", "-")
 ## output
 fruits.re
 ```
-There is a problem though, this is the output <em> "one apple"       "two pe-rs"       "three b-naaanas" </em>. What is going on here? str_replace only looks for the first instance of a match in a string. How do we get around this?
+There is a problem though, this is the output <em> "one apple"       "two pe-rs"       "three b-naaanas" </em>. What is going on here? str_replace only looks for the <strong>first instance</strong> of a match in a string. This is visible in the examples above as well with the fruits vector and dataframe. How do we get around this?
 
 ```r
 ## fruit vector
