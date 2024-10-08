@@ -4,7 +4,7 @@ title: Outline
 nav_order: 1
 ---
 
-## Note: this workshop is in development and not yet complete.
+# Introduction
 
 In this workshop, we will learn about regular expressions (regex). We will go over what they are and when to use them and then have lots of time to practice.
 
