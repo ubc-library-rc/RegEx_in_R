@@ -41,10 +41,10 @@ This is an example from stringr, type ?str_replace to find it in the help tab.
 fruits <- c("one apple", "two pears", "three bananas")
 ```
 <details><summary><strong> Answer </strong></summary>
-        fruits = str_replace(fruits, "[aeiou]", "-")
+        fruits = str_replace_all(fruits, "[aeiou]", "-")
 </details>
 
-### P2 - Capitalize all letters
+### P2 - Capitalize first letter of each word
 ``` r
 ## get vector
 fruits <- c("one apple", "two pears", "three bananas")
