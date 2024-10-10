@@ -55,7 +55,7 @@ fruits <- c("one apple", "two pears", "three bananas")
 
 
 ## III - Combinations of words
-### P1 - remove the end of the words that are Amarica and British english and sigular or plural
+### P1 - remove the end of the words that are American and British english and sigular or plural
 Your goal is for <em>length(unique(words))</em> to output 2. Right now, it outputs 8. 
 
 ``` r
