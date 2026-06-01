@@ -1,4 +1,4 @@
-# Regular Expressions (regex) in R
+# Regular Expressions in R
 ### UBC Library Research Commons
 
 Link to workshop: https://ubc-library-rc.github.io/RegEx_in_R/
